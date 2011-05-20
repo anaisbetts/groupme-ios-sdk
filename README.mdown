@@ -47,6 +47,8 @@ First, you need to get the configure GroupMeConnect:
 	[GroupMeConnect storeStateInUserDefaults:YES];
 
 The first call to set the application id and secret is required but the second is optional.  Storing the token/groups in the user defaults isn't the safest place to do this, but for bootstrapping your project, it might help. You should really store the token in the Keychain, and cache the groups however you see fit. The token and groups are properties on the singleton, so you can always set those in future sessions.
+
+If you do not have a client id and secret, email us at api@groupme.com and let us know what you are looking to build.
 	
 After that, you can get a valid GroupMeConnect singleton
 	
@@ -116,4 +118,4 @@ The request above requests a token from the API. The params dictionary will be s
 
 # Other resources
 
-* For more information on what API calls are available, please visit TODO:figure out public url of those docs 
+* For more information on what API calls are available, please visit https://github.com/groupme/client-library-api 
