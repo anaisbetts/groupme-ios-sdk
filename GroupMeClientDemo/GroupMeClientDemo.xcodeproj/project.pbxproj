@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F0A4D4F135E2DAF00652B08 /* DemoTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4D4E135E2DAF00652B08 /* DemoTabBarController.m */; };
+		3F177FDA1355DC8E00A4637F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F177FD81355DC8E00A4637F /* AddressBook.framework */; };
+		3F177FDB1355DC8E00A4637F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F177FD91355DC8E00A4637F /* AddressBookUI.framework */; };
+		3F4F1F2A134F9E80007D8FF8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4F1F29134F9E80007D8FF8 /* UIKit.framework */; };
+		3F4F1F2C134F9E80007D8FF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4F1F2B134F9E80007D8FF8 /* Foundation.framework */; };
+		3F4F1F2E134F9E80007D8FF8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4F1F2D134F9E80007D8FF8 /* CoreGraphics.framework */; };
+		3F4F1F34134F9E80007D8FF8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F4F1F32134F9E80007D8FF8 /* InfoPlist.strings */; };
+		3F4F1F37134F9E80007D8FF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F1F36134F9E80007D8FF8 /* main.m */; };
+		3F4F1F3A134F9E80007D8FF8 /* GroupMeClientDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F1F39134F9E80007D8FF8 /* GroupMeClientDemoAppDelegate.m */; };
+		3F4F1F51134FA126007D8FF8 /* DemoCustomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F1F50134FA125007D8FF8 /* DemoCustomTableViewController.m */; };
+		3F8B412B1358B1C6009C4415 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8B412A1358B1C6009C4415 /* MessageUI.framework */; };
+		3F902B57135DE2630030081D /* GMGroupsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B3B135DE2630030081D /* GMGroupsDataSource.m */; };
+		3F902B58135DE2630030081D /* GroupMeConnect.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F902B3C135DE2630030081D /* GroupMeConnect.bundle */; };
+		3F902B59135DE2630030081D /* GroupMeConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B3E135DE2630030081D /* GroupMeConnect.m */; };
+		3F902B5A135DE2630030081D /* GroupMeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B40135DE2630030081D /* GroupMeRequest.m */; };
+		3F902B5B135DE2630030081D /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F902B42135DE2630030081D /* CHANGELOG.md */; };
+		3F902B5C135DE2630030081D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B44135DE2630030081D /* JSONKit.m */; };
+		3F902B5D135DE2630030081D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F902B45135DE2630030081D /* README.md */; };
+		3F902B5E135DE2630030081D /* GMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B48135DE2630030081D /* GMButton.m */; };
+		3F902B5F135DE2630030081D /* GMChatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B4A135DE2630030081D /* GMChatButton.m */; };
+		3F902B60135DE2630030081D /* GMCreateContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B4C135DE2630030081D /* GMCreateContactViewController.m */; };
+		3F902B61135DE2630030081D /* GMCreateGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B4E135DE2630030081D /* GMCreateGroupController.m */; };
+		3F902B62135DE2630030081D /* GMGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B50135DE2630030081D /* GMGroupDetailViewController.m */; };
+		3F902B63135DE2630030081D /* GMGroupPostLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B52135DE2630030081D /* GMGroupPostLineViewController.m */; };
+		3F902B64135DE2630030081D /* GMGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B54135DE2630030081D /* GMGroupsTableViewController.m */; };
+		3F902B65135DE2630030081D /* GMRegisterDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F902B56135DE2630030081D /* GMRegisterDeviceViewController.m */; };
+		3F9E38F21357402F005AAFA0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9E38F11357402F005AAFA0 /* QuartzCore.framework */; };
+		3F9E3930135762ED005AAFA0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E392E135762ED005AAFA0 /* Icon.png */; };
+		3F9E3931135762ED005AAFA0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E392F135762ED005AAFA0 /* Icon@2x.png */; };
+		3FC9BD61137045D000661F7B /* GMLearnMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9BD60137045D000661F7B /* GMLearnMoreViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F0A4D4D135E2DAE00652B08 /* DemoTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTabBarController.h; sourceTree = "<group>"; };
+		3F0A4D4E135E2DAF00652B08 /* DemoTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTabBarController.m; sourceTree = "<group>"; };
+		3F177FD81355DC8E00A4637F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3F177FD91355DC8E00A4637F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		3F4F1F25134F9E80007D8FF8 /* GroupMeClientDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupMeClientDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4F1F29134F9E80007D8FF8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3F4F1F2B134F9E80007D8FF8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3F4F1F2D134F9E80007D8FF8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3F4F1F31134F9E80007D8FF8 /* GroupMeClientDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GroupMeClientDemo-Info.plist"; sourceTree = "<group>"; };
+		3F4F1F33134F9E80007D8FF8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F4F1F35134F9E80007D8FF8 /* GroupMeClientDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroupMeClientDemo-Prefix.pch"; sourceTree = "<group>"; };
+		3F4F1F36134F9E80007D8FF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F4F1F38134F9E80007D8FF8 /* GroupMeClientDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupMeClientDemoAppDelegate.h; sourceTree = "<group>"; };
+		3F4F1F39134F9E80007D8FF8 /* GroupMeClientDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupMeClientDemoAppDelegate.m; sourceTree = "<group>"; };
+		3F4F1F4F134FA125007D8FF8 /* DemoCustomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCustomTableViewController.h; sourceTree = "<group>"; };
+		3F4F1F50134FA125007D8FF8 /* DemoCustomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCustomTableViewController.m; sourceTree = "<group>"; };
+		3F8B412A1358B1C6009C4415 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3F902B3A135DE2630030081D /* GMGroupsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGroupsDataSource.h; sourceTree = "<group>"; };
+		3F902B3B135DE2630030081D /* GMGroupsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGroupsDataSource.m; sourceTree = "<group>"; };
+		3F902B3C135DE2630030081D /* GroupMeConnect.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GroupMeConnect.bundle; sourceTree = "<group>"; };
+		3F902B3D135DE2630030081D /* GroupMeConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMeConnect.h; sourceTree = "<group>"; };
+		3F902B3E135DE2630030081D /* GroupMeConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMeConnect.m; sourceTree = "<group>"; };
+		3F902B3F135DE2630030081D /* GroupMeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMeRequest.h; sourceTree = "<group>"; };
+		3F902B40135DE2630030081D /* GroupMeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMeRequest.m; sourceTree = "<group>"; };
+		3F902B42135DE2630030081D /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		3F902B43135DE2630030081D /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		3F902B44135DE2630030081D /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		3F902B45135DE2630030081D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		3F902B47135DE2630030081D /* GMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMButton.h; sourceTree = "<group>"; };
+		3F902B48135DE2630030081D /* GMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMButton.m; sourceTree = "<group>"; };
+		3F902B49135DE2630030081D /* GMChatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMChatButton.h; sourceTree = "<group>"; };
+		3F902B4A135DE2630030081D /* GMChatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMChatButton.m; sourceTree = "<group>"; };
+		3F902B4B135DE2630030081D /* GMCreateContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCreateContactViewController.h; sourceTree = "<group>"; };
+		3F902B4C135DE2630030081D /* GMCreateContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCreateContactViewController.m; sourceTree = "<group>"; };
+		3F902B4D135DE2630030081D /* GMCreateGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCreateGroupController.h; sourceTree = "<group>"; };
+		3F902B4E135DE2630030081D /* GMCreateGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCreateGroupController.m; sourceTree = "<group>"; };
+		3F902B4F135DE2630030081D /* GMGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGroupDetailViewController.h; sourceTree = "<group>"; };
+		3F902B50135DE2630030081D /* GMGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGroupDetailViewController.m; sourceTree = "<group>"; };
+		3F902B51135DE2630030081D /* GMGroupPostLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGroupPostLineViewController.h; sourceTree = "<group>"; };
+		3F902B52135DE2630030081D /* GMGroupPostLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGroupPostLineViewController.m; sourceTree = "<group>"; };
+		3F902B53135DE2630030081D /* GMGroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGroupsTableViewController.h; sourceTree = "<group>"; };
+		3F902B54135DE2630030081D /* GMGroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGroupsTableViewController.m; sourceTree = "<group>"; };
+		3F902B55135DE2630030081D /* GMRegisterDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMRegisterDeviceViewController.h; sourceTree = "<group>"; };
+		3F902B56135DE2630030081D /* GMRegisterDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMRegisterDeviceViewController.m; sourceTree = "<group>"; };
+		3F9E38F11357402F005AAFA0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3F9E392E135762ED005AAFA0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		3F9E392F135762ED005AAFA0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		3FC9BD5F137045D000661F7B /* GMLearnMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLearnMoreViewController.h; sourceTree = "<group>"; };
+		3FC9BD60137045D000661F7B /* GMLearnMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLearnMoreViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F4F1F22134F9E80007D8FF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8B412B1358B1C6009C4415 /* MessageUI.framework in Frameworks */,
+				3F9E38F21357402F005AAFA0 /* QuartzCore.framework in Frameworks */,
+				3F177FDA1355DC8E00A4637F /* AddressBook.framework in Frameworks */,
+				3F177FDB1355DC8E00A4637F /* AddressBookUI.framework in Frameworks */,
+				3F4F1F2A134F9E80007D8FF8 /* UIKit.framework in Frameworks */,
+				3F4F1F2C134F9E80007D8FF8 /* Foundation.framework in Frameworks */,
+				3F4F1F2E134F9E80007D8FF8 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F4F1F1A134F9E80007D8FF8 = {
+			isa = PBXGroup;
+			children = (
+				3F4F1F2F134F9E80007D8FF8 /* GroupMeClientDemo */,
+				3F4F1F28134F9E80007D8FF8 /* Frameworks */,
+				3F4F1F26134F9E80007D8FF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F4F1F26134F9E80007D8FF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F1F25134F9E80007D8FF8 /* GroupMeClientDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F4F1F28134F9E80007D8FF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F8B412A1358B1C6009C4415 /* MessageUI.framework */,
+				3F9E38F11357402F005AAFA0 /* QuartzCore.framework */,
+				3F177FD81355DC8E00A4637F /* AddressBook.framework */,
+				3F177FD91355DC8E00A4637F /* AddressBookUI.framework */,
+				3F4F1F29134F9E80007D8FF8 /* UIKit.framework */,
+				3F4F1F2B134F9E80007D8FF8 /* Foundation.framework */,
+				3F4F1F2D134F9E80007D8FF8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F4F1F2F134F9E80007D8FF8 /* GroupMeClientDemo */ = {
+			isa = PBXGroup;
+			children = (
+				3F9E392E135762ED005AAFA0 /* Icon.png */,
+				3F9E392F135762ED005AAFA0 /* Icon@2x.png */,
+				3F902B38135DE2630030081D /* GroupMeConnect */,
+				3F4F1F30134F9E80007D8FF8 /* Supporting Files */,
+				3F4F1F38134F9E80007D8FF8 /* GroupMeClientDemoAppDelegate.h */,
+				3F4F1F39134F9E80007D8FF8 /* GroupMeClientDemoAppDelegate.m */,
+				3F4F1F4F134FA125007D8FF8 /* DemoCustomTableViewController.h */,
+				3F4F1F50134FA125007D8FF8 /* DemoCustomTableViewController.m */,
+				3F0A4D4D135E2DAE00652B08 /* DemoTabBarController.h */,
+				3F0A4D4E135E2DAF00652B08 /* DemoTabBarController.m */,
+			);
+			path = GroupMeClientDemo;
+			sourceTree = "<group>";
+		};
+		3F4F1F30134F9E80007D8FF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F1F31134F9E80007D8FF8 /* GroupMeClientDemo-Info.plist */,
+				3F4F1F32134F9E80007D8FF8 /* InfoPlist.strings */,
+				3F4F1F35134F9E80007D8FF8 /* GroupMeClientDemo-Prefix.pch */,
+				3F4F1F36134F9E80007D8FF8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F902B38135DE2630030081D /* GroupMeConnect */ = {
+			isa = PBXGroup;
+			children = (
+				3F902B39135DE2630030081D /* Datasources */,
+				3F902B3C135DE2630030081D /* GroupMeConnect.bundle */,
+				3F902B3D135DE2630030081D /* GroupMeConnect.h */,
+				3F902B3E135DE2630030081D /* GroupMeConnect.m */,
+				3F902B3F135DE2630030081D /* GroupMeRequest.h */,
+				3F902B40135DE2630030081D /* GroupMeRequest.m */,
+				3F902B41135DE2630030081D /* JSON */,
+				3F902B46135DE2630030081D /* UI */,
+			);
+			name = GroupMeConnect;
+			path = ../../GroupMeClientLibrary/GroupMeConnect;
+			sourceTree = "<group>";
+		};
+		3F902B39135DE2630030081D /* Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				3F902B3A135DE2630030081D /* GMGroupsDataSource.h */,
+				3F902B3B135DE2630030081D /* GMGroupsDataSource.m */,
+			);
+			path = Datasources;
+			sourceTree = "<group>";
+		};
+		3F902B41135DE2630030081D /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				3F902B42135DE2630030081D /* CHANGELOG.md */,
+				3F902B43135DE2630030081D /* JSONKit.h */,
+				3F902B44135DE2630030081D /* JSONKit.m */,
+				3F902B45135DE2630030081D /* README.md */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		3F902B46135DE2630030081D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3F902B47135DE2630030081D /* GMButton.h */,
+				3F902B48135DE2630030081D /* GMButton.m */,
+				3F902B49135DE2630030081D /* GMChatButton.h */,
+				3F902B4A135DE2630030081D /* GMChatButton.m */,
+				3F902B4B135DE2630030081D /* GMCreateContactViewController.h */,
+				3F902B4C135DE2630030081D /* GMCreateContactViewController.m */,
+				3F902B4D135DE2630030081D /* GMCreateGroupController.h */,
+				3F902B4E135DE2630030081D /* GMCreateGroupController.m */,
+				3F902B4F135DE2630030081D /* GMGroupDetailViewController.h */,
+				3F902B50135DE2630030081D /* GMGroupDetailViewController.m */,
+				3F902B51135DE2630030081D /* GMGroupPostLineViewController.h */,
+				3F902B52135DE2630030081D /* GMGroupPostLineViewController.m */,
+				3F902B53135DE2630030081D /* GMGroupsTableViewController.h */,
+				3F902B54135DE2630030081D /* GMGroupsTableViewController.m */,
+				3FC9BD5F137045D000661F7B /* GMLearnMoreViewController.h */,
+				3FC9BD60137045D000661F7B /* GMLearnMoreViewController.m */,
+				3F902B55135DE2630030081D /* GMRegisterDeviceViewController.h */,
+				3F902B56135DE2630030081D /* GMRegisterDeviceViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F4F1F24134F9E80007D8FF8 /* GroupMeClientDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F4F1F4C134F9E81007D8FF8 /* Build configuration list for PBXNativeTarget "GroupMeClientDemo" */;
+			buildPhases = (
+				3F4F1F21134F9E80007D8FF8 /* Sources */,
+				3F4F1F22134F9E80007D8FF8 /* Frameworks */,
+				3F4F1F23134F9E80007D8FF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GroupMeClientDemo;
+			productName = GroupMeClientDemo;
+			productReference = 3F4F1F25134F9E80007D8FF8 /* GroupMeClientDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F4F1F1C134F9E80007D8FF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Mindless Dribble, Inc";
+			};
+			buildConfigurationList = 3F4F1F1F134F9E80007D8FF8 /* Build configuration list for PBXProject "GroupMeClientDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3F4F1F1A134F9E80007D8FF8;
+			productRefGroup = 3F4F1F26134F9E80007D8FF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F4F1F24134F9E80007D8FF8 /* GroupMeClientDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F4F1F23134F9E80007D8FF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4F1F34134F9E80007D8FF8 /* InfoPlist.strings in Resources */,
+				3F9E3930135762ED005AAFA0 /* Icon.png in Resources */,
+				3F9E3931135762ED005AAFA0 /* Icon@2x.png in Resources */,
+				3F902B58135DE2630030081D /* GroupMeConnect.bundle in Resources */,
+				3F902B5B135DE2630030081D /* CHANGELOG.md in Resources */,
+				3F902B5D135DE2630030081D /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F4F1F21134F9E80007D8FF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4F1F37134F9E80007D8FF8 /* main.m in Sources */,
+				3F4F1F3A134F9E80007D8FF8 /* GroupMeClientDemoAppDelegate.m in Sources */,
+				3F4F1F51134FA126007D8FF8 /* DemoCustomTableViewController.m in Sources */,
+				3F902B57135DE2630030081D /* GMGroupsDataSource.m in Sources */,
+				3F902B59135DE2630030081D /* GroupMeConnect.m in Sources */,
+				3F902B5A135DE2630030081D /* GroupMeRequest.m in Sources */,
+				3F902B5C135DE2630030081D /* JSONKit.m in Sources */,
+				3F902B5E135DE2630030081D /* GMButton.m in Sources */,
+				3F902B5F135DE2630030081D /* GMChatButton.m in Sources */,
+				3F902B60135DE2630030081D /* GMCreateContactViewController.m in Sources */,
+				3F902B61135DE2630030081D /* GMCreateGroupController.m in Sources */,
+				3F902B62135DE2630030081D /* GMGroupDetailViewController.m in Sources */,
+				3F902B63135DE2630030081D /* GMGroupPostLineViewController.m in Sources */,
+				3F902B64135DE2630030081D /* GMGroupsTableViewController.m in Sources */,
+				3F902B65135DE2630030081D /* GMRegisterDeviceViewController.m in Sources */,
+				3F0A4D4F135E2DAF00652B08 /* DemoTabBarController.m in Sources */,
+				3FC9BD61137045D000661F7B /* GMLearnMoreViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3F4F1F32134F9E80007D8FF8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F4F1F33134F9E80007D8FF8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F4F1F4A134F9E81007D8FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				PRODUCT_NAME = "groupme-client-demo";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3F4F1F4B134F9E81007D8FF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "groupme-client-demo";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		3F4F1F4D134F9E81007D8FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GroupMeClientDemo/GroupMeClientDemo-Prefix.pch";
+				INFOPLIST_FILE = "GroupMeClientDemo/GroupMeClientDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3F4F1F4E134F9E81007D8FF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GroupMeClientDemo/GroupMeClientDemo-Prefix.pch";
+				INFOPLIST_FILE = "GroupMeClientDemo/GroupMeClientDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F4F1F1F134F9E80007D8FF8 /* Build configuration list for PBXProject "GroupMeClientDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4F1F4A134F9E81007D8FF8 /* Debug */,
+				3F4F1F4B134F9E81007D8FF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F4F1F4C134F9E81007D8FF8 /* Build configuration list for PBXNativeTarget "GroupMeClientDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4F1F4D134F9E81007D8FF8 /* Debug */,
+				3F4F1F4E134F9E81007D8FF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F4F1F1C134F9E80007D8FF8 /* Project object */;
+}

@@ -1,0 +1,119 @@
+# GroupMe iOS SDK
+
+This open source iOS library allows you to integrate GroupMe into your iOS application.
+
+Except as otherwise noted, the GroupMe iOS SDK is licences under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+# Environment
+
+* Get your iOS development set up by following instructions here: (http://developer.apple.com/devcenter/ios/index.action "Apple iOS Development Center")
+* Get this SDK by pulling it from Github: git clone git@github.com:groupme/groupme-ios-sdk.git
+
+# Demo App/Library
+
+The git repository contains a workspace, iphone-client-library.xcworkspace, compatible with Xcode 4, which has 2 projects.
+
+* GroupMeClientDemo - A sample iPhone application that shows an integration of the GroupMe Client Library
+* GroupMeClientLibrary - The source and resources for the GroupMe client library.
+
+The demo app uses references to the source files in the GroupMeClientLibrary. You can also build the static lib directly, and then link agains that if you prefer.
+
+# Integration into your iOS application
+
+Copy the GroupMeClientLibrary/GroupMeConnect folder into your application:
+
+* In Xcode, open your application.
+* Using Finder, find the GroupMeConnect folder which lives inside the GroupMeClientLibrary folder in the git repository you just cloned.
+* Drag the GroupMeConnect folder into your project in Xcode. Check the box in the adding files dialog to "Copy items into destination group's folder" and tell it to "Create groups for any added folders"
+* Add the required Frameworks
+	* Foundation.framework
+	* UIKIt.framework 
+	* AddressBook.framework
+	* AddressBookUI.framework
+	* QuartzCore.framework
+	* CoreGraphics.framework
+	* MessageUI.framework
+* Import the headers
+	
+		#import "GroupMeConnect.h"
+
+* You are now ready to build your application
+
+# Using the Client Library
+
+First, you need to get the configure GroupMeConnect:
+
+	[GroupMeConnect setClientId:@"yourClientId" andClientSecret:@"yourClientSecret"];
+	[GroupMeConnect storeStateInUserDefaults:YES];
+
+The first call to set the application id and secret is required but the second is optional.  Storing the token/groups in the user defaults isn't the safest place to do this, but for bootstrapping your project, it might help. You should really store the token in the Keychain, and cache the groups however you see fit. The token and groups are properties on the singleton, so you can always set those in future sessions.
+	
+After that, you can get a valid GroupMeConnect singleton
+	
+	GroupMeConnect *groupMe = [GroupMeConnect sharedGroupMe];
+
+With this object you can start the Authentication process, load groups, create groups, and make raw API calls.
+
+
+# Using the UI resources
+
+In the client library are a number of UIViewControllers that can handle all the interactions with GroupMe for you. 
+
+## GMGroupsTableViewController
+
+The highest lever one is the GMGroupsTableViewController. This view controller will handle all the authentication, group listings, group creation and viewing group details for you. The demo app uses this to show you the easiest integration.
+
+Create the View Controller
+
+	GMGroupsTableViewController *groupsController = [[GMGroupsTableViewController alloc] init];
+	
+You can now push this onto a UINavigationController or make it one of the view controllers in a UITabBarController or anything else you can do with a standard view controller.
+
+If you want to customize the empty groups splash screen, you can override the default GroupMe image by specifying your own.
+
+	groupsController.noGroupsImage = [UIImage imageNamed@"yourImage.png"];
+
+## GMRegisterDeviceViewController
+
+This view controller will handle all of the Authentication for you. We've added a class method that will present one in it's own navigation controller and callback to your delegate when it is complete:
+
+	[GMRegisterDeviceViewController showRegistrationInViewController:someViewController andDelegate:someDelegate];
+
+Your delegate will need to implement the GroupMeRegistrationDelegate protocol. Once Authentication is successful, your GroupMeConnect object will have a valid token associated with it that you can make API calls with.
+
+# Making Direct API requests
+
+You can also make requests directly against the GroupMe API using the GroupMeConnect object.
+
+An example:
+
+	[groupMe requestWithMethodName:@"groups" 
+						 andParams:nil 
+					 andHttpMethod:@"GET"
+					  andRequestId:nil
+					   andDelegate:delegate];
+
+This will hit the groups endpoint as a GET request, without any params. The delegate must implement the GroupMeRequestDelegate protocol. If desired you can assign it a request id, so you can identify it easily in the delegate callbacks.
+
+A more elaborate request would look like this:
+
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:5];
+	
+	[params setValue:@"APPID" forKey:@"client_id"];
+	[params setValue:@"APPSECRET" forKey:@"client_secret"];
+
+	[params setValue:@"555555555" forKey:@"phone_number"];
+	[params setValue:[[UIDevice currentDevice] uniqueIdentifier] forKey:@"device_id"];
+	[params setValue:GROUP_ME_AUTH_CLIENT_CREDENTIALS forKey:@"grant_type"];
+	
+	[groupMe requestWithMethodName:@"tokens" 
+						 andParams:params 
+					 andHttpMethod:@"POST"
+					  andRequestId:@"phoneAuthRequest"
+					   andDelegate:delegate];
+
+The request above requests a token from the API. The params dictionary will be serialized as a query string for this request, so you don't need to worry about any of the url encoding.
+
+# Other resources
+
+* For more information on what API calls are available, please visit TODO:figure out public url of those docs 

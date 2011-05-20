@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F0A4C3F135DE57300652B08 /* GMGroupsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C22135DE57300652B08 /* GMGroupsDataSource.h */; };
+		3F0A4C40135DE57300652B08 /* GMGroupsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C23135DE57300652B08 /* GMGroupsDataSource.m */; };
+		3F0A4C41135DE57300652B08 /* GroupMeConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C25135DE57300652B08 /* GroupMeConnect.h */; };
+		3F0A4C42135DE57300652B08 /* GroupMeConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C26135DE57300652B08 /* GroupMeConnect.m */; };
+		3F0A4C43135DE57300652B08 /* GroupMeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C27135DE57300652B08 /* GroupMeRequest.h */; };
+		3F0A4C44135DE57300652B08 /* GroupMeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C28135DE57300652B08 /* GroupMeRequest.m */; };
+		3F0A4C45135DE57300652B08 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C2B135DE57300652B08 /* JSONKit.h */; };
+		3F0A4C46135DE57300652B08 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C2C135DE57300652B08 /* JSONKit.m */; };
+		3F0A4C47135DE57300652B08 /* GMButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C2F135DE57300652B08 /* GMButton.h */; };
+		3F0A4C48135DE57300652B08 /* GMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C30135DE57300652B08 /* GMButton.m */; };
+		3F0A4C49135DE57300652B08 /* GMChatButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C31135DE57300652B08 /* GMChatButton.h */; };
+		3F0A4C4A135DE57300652B08 /* GMChatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C32135DE57300652B08 /* GMChatButton.m */; };
+		3F0A4C4B135DE57300652B08 /* GMCreateContactViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C33135DE57300652B08 /* GMCreateContactViewController.h */; };
+		3F0A4C4C135DE57300652B08 /* GMCreateContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C34135DE57300652B08 /* GMCreateContactViewController.m */; };
+		3F0A4C4D135DE57300652B08 /* GMCreateGroupController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C35135DE57300652B08 /* GMCreateGroupController.h */; };
+		3F0A4C4E135DE57300652B08 /* GMCreateGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C36135DE57300652B08 /* GMCreateGroupController.m */; };
+		3F0A4C4F135DE57300652B08 /* GMGroupDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C37135DE57300652B08 /* GMGroupDetailViewController.h */; };
+		3F0A4C50135DE57300652B08 /* GMGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C38135DE57300652B08 /* GMGroupDetailViewController.m */; };
+		3F0A4C51135DE57300652B08 /* GMGroupPostLineViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C39135DE57300652B08 /* GMGroupPostLineViewController.h */; };
+		3F0A4C52135DE57300652B08 /* GMGroupPostLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C3A135DE57300652B08 /* GMGroupPostLineViewController.m */; };
+		3F0A4C53135DE57300652B08 /* GMGroupsTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C3B135DE57300652B08 /* GMGroupsTableViewController.h */; };
+		3F0A4C54135DE57300652B08 /* GMGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C3C135DE57300652B08 /* GMGroupsTableViewController.m */; };
+		3F0A4C55135DE57300652B08 /* GMRegisterDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0A4C3D135DE57300652B08 /* GMRegisterDeviceViewController.h */; };
+		3F0A4C56135DE57300652B08 /* GMRegisterDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A4C3E135DE57300652B08 /* GMRegisterDeviceViewController.m */; };
+		3F177FDF1355DC9900A4637F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F177FDD1355DC9900A4637F /* AddressBook.framework */; };
+		3F177FE01355DC9900A4637F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F177FDE1355DC9900A4637F /* AddressBookUI.framework */; };
+		3F4F1E73134F89EE007D8FF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4F1E72134F89EE007D8FF8 /* Foundation.framework */; };
+		3F8B41281358B1B5009C4415 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8B41271358B1B5009C4415 /* MessageUI.framework */; };
+		3F9E38F513574041005AAFA0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9E38F413574041005AAFA0 /* QuartzCore.framework */; };
+		3FC9BD5C137043FA00661F7B /* GMLearnMoreViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC9BD5A137043FA00661F7B /* GMLearnMoreViewController.h */; };
+		3FC9BD5D137043FA00661F7B /* GMLearnMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9BD5B137043FA00661F7B /* GMLearnMoreViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F0A4C22135DE57300652B08 /* GMGroupsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGroupsDataSource.h; sourceTree = "<group>"; };
+		3F0A4C23135DE57300652B08 /* GMGroupsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGroupsDataSource.m; sourceTree = "<group>"; };
+		3F0A4C24135DE57300652B08 /* GroupMeConnect.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GroupMeConnect.bundle; sourceTree = "<group>"; };
+		3F0A4C25135DE57300652B08 /* GroupMeConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMeConnect.h; sourceTree = "<group>"; };
+		3F0A4C26135DE57300652B08 /* GroupMeConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMeConnect.m; sourceTree = "<group>"; };
+		3F0A4C27135DE57300652B08 /* GroupMeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMeRequest.h; sourceTree = "<group>"; };
+		3F0A4C28135DE57300652B08 /* GroupMeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMeRequest.m; sourceTree = "<group>"; };
+		3F0A4C2A135DE57300652B08 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		3F0A4C2B135DE57300652B08 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		3F0A4C2C135DE57300652B08 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		3F0A4C2D135DE57300652B08 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		3F0A4C2F135DE57300652B08 /* GMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMButton.h; sourceTree = "<group>"; };
+		3F0A4C30135DE57300652B08 /* GMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMButton.m; sourceTree = "<group>"; };
+		3F0A4C31135DE57300652B08 /* GMChatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMChatButton.h; sourceTree = "<group>"; };
+		3F0A4C32135DE57300652B08 /* GMChatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMChatButton.m; sourceTree = "<group>"; };
+		3F0A4C33135DE57300652B08 /* GMCreateContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCreateContactViewController.h; sourceTree = "<group>"; };
+		3F0A4C34135DE57300652B08 /* GMCreateContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCreateContactViewController.m; sourceTree = "<group>"; };
+		3F0A4C35135DE57300652B08 /* GMCreateGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCreateGroupController.h; sourceTree = "<group>"; };
+		3F0A4C36135DE57300652B08 /* GMCreateGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCreateGroupController.m; sourceTree = "<group>"; };
+		3F0A4C37135DE57300652B08 /* GMGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGroupDetailViewController.h; sourceTree = "<group>"; };
+		3F0A4C38135DE57300652B08 /* GMGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGroupDetailViewController.m; sourceTree = "<group>"; };
+		3F0A4C39135DE57300652B08 /* GMGroupPostLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGroupPostLineViewController.h; sourceTree = "<group>"; };
+		3F0A4C3A135DE57300652B08 /* GMGroupPostLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGroupPostLineViewController.m; sourceTree = "<group>"; };
+		3F0A4C3B135DE57300652B08 /* GMGroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGroupsTableViewController.h; sourceTree = "<group>"; };
+		3F0A4C3C135DE57300652B08 /* GMGroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGroupsTableViewController.m; sourceTree = "<group>"; };
+		3F0A4C3D135DE57300652B08 /* GMRegisterDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMRegisterDeviceViewController.h; sourceTree = "<group>"; };
+		3F0A4C3E135DE57300652B08 /* GMRegisterDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMRegisterDeviceViewController.m; sourceTree = "<group>"; };
+		3F177FDD1355DC9900A4637F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3F177FDE1355DC9900A4637F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		3F4F1E6F134F89EE007D8FF8 /* libGroupMeClientLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGroupMeClientLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4F1E72134F89EE007D8FF8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3F4F1E76134F89EE007D8FF8 /* GroupMeClientLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroupMeClientLibrary-Prefix.pch"; sourceTree = "<group>"; };
+		3F4F1E7D134F89EE007D8FF8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3F4F1E80134F89EE007D8FF8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3F8B41271358B1B5009C4415 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3F939576135CC509002017DE /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
+		3F939577135CC509002017DE /* chat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat@2x.png"; sourceTree = "<group>"; };
+		3F939578135CC509002017DE /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		3F939579135CC509002017DE /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
+		3F93957A135CC509002017DE /* poundie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poundie.png; sourceTree = "<group>"; };
+		3F93957B135CC509002017DE /* poundie@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poundie@2x.png"; sourceTree = "<group>"; };
+		3F93957C135CD673002017DE /* no_groups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_groups.png; sourceTree = "<group>"; };
+		3F93957D135CD673002017DE /* no_groups@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_groups@2x.png"; sourceTree = "<group>"; };
+		3F9E38F413574041005AAFA0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3FC9BD5A137043FA00661F7B /* GMLearnMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLearnMoreViewController.h; sourceTree = "<group>"; };
+		3FC9BD5B137043FA00661F7B /* GMLearnMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLearnMoreViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F4F1E6C134F89EE007D8FF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8B41281358B1B5009C4415 /* MessageUI.framework in Frameworks */,
+				3F9E38F513574041005AAFA0 /* QuartzCore.framework in Frameworks */,
+				3F177FDF1355DC9900A4637F /* AddressBook.framework in Frameworks */,
+				3F177FE01355DC9900A4637F /* AddressBookUI.framework in Frameworks */,
+				3F4F1E73134F89EE007D8FF8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F0A4C20135DE57300652B08 /* GroupMeConnect */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A4C21135DE57300652B08 /* Datasources */,
+				3F0A4C24135DE57300652B08 /* GroupMeConnect.bundle */,
+				3F0A4C25135DE57300652B08 /* GroupMeConnect.h */,
+				3F0A4C26135DE57300652B08 /* GroupMeConnect.m */,
+				3F0A4C27135DE57300652B08 /* GroupMeRequest.h */,
+				3F0A4C28135DE57300652B08 /* GroupMeRequest.m */,
+				3F0A4C29135DE57300652B08 /* JSON */,
+				3F0A4C2E135DE57300652B08 /* UI */,
+			);
+			path = GroupMeConnect;
+			sourceTree = "<group>";
+		};
+		3F0A4C21135DE57300652B08 /* Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A4C22135DE57300652B08 /* GMGroupsDataSource.h */,
+				3F0A4C23135DE57300652B08 /* GMGroupsDataSource.m */,
+			);
+			path = Datasources;
+			sourceTree = "<group>";
+		};
+		3F0A4C29135DE57300652B08 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A4C2A135DE57300652B08 /* CHANGELOG.md */,
+				3F0A4C2B135DE57300652B08 /* JSONKit.h */,
+				3F0A4C2C135DE57300652B08 /* JSONKit.m */,
+				3F0A4C2D135DE57300652B08 /* README.md */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		3F0A4C2E135DE57300652B08 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3F0A4C2F135DE57300652B08 /* GMButton.h */,
+				3F0A4C30135DE57300652B08 /* GMButton.m */,
+				3F0A4C31135DE57300652B08 /* GMChatButton.h */,
+				3F0A4C32135DE57300652B08 /* GMChatButton.m */,
+				3F0A4C33135DE57300652B08 /* GMCreateContactViewController.h */,
+				3F0A4C34135DE57300652B08 /* GMCreateContactViewController.m */,
+				3F0A4C35135DE57300652B08 /* GMCreateGroupController.h */,
+				3F0A4C36135DE57300652B08 /* GMCreateGroupController.m */,
+				3F0A4C37135DE57300652B08 /* GMGroupDetailViewController.h */,
+				3F0A4C38135DE57300652B08 /* GMGroupDetailViewController.m */,
+				3F0A4C39135DE57300652B08 /* GMGroupPostLineViewController.h */,
+				3F0A4C3A135DE57300652B08 /* GMGroupPostLineViewController.m */,
+				3F0A4C3B135DE57300652B08 /* GMGroupsTableViewController.h */,
+				3F0A4C3C135DE57300652B08 /* GMGroupsTableViewController.m */,
+				3F0A4C3D135DE57300652B08 /* GMRegisterDeviceViewController.h */,
+				3F0A4C3E135DE57300652B08 /* GMRegisterDeviceViewController.m */,
+				3FC9BD5A137043FA00661F7B /* GMLearnMoreViewController.h */,
+				3FC9BD5B137043FA00661F7B /* GMLearnMoreViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3F4F1E64134F89EE007D8FF8 = {
+			isa = PBXGroup;
+			children = (
+				3F0A4C20135DE57300652B08 /* GroupMeConnect */,
+				3F4F1E74134F89EE007D8FF8 /* GroupMeClientLibrary */,
+				3F4F1E71134F89EE007D8FF8 /* Frameworks */,
+				3F4F1E70134F89EE007D8FF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F4F1E70134F89EE007D8FF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F1E6F134F89EE007D8FF8 /* libGroupMeClientLibrary.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F4F1E71134F89EE007D8FF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F8B41271358B1B5009C4415 /* MessageUI.framework */,
+				3F9E38F413574041005AAFA0 /* QuartzCore.framework */,
+				3F177FDD1355DC9900A4637F /* AddressBook.framework */,
+				3F177FDE1355DC9900A4637F /* AddressBookUI.framework */,
+				3F4F1E72134F89EE007D8FF8 /* Foundation.framework */,
+				3F4F1E7D134F89EE007D8FF8 /* UIKit.framework */,
+				3F4F1E80134F89EE007D8FF8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F4F1E74134F89EE007D8FF8 /* GroupMeClientLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F1E75134F89EE007D8FF8 /* Supporting Files */,
+				3F4F1F10134F9D08007D8FF8 /* images */,
+			);
+			path = GroupMeClientLibrary;
+			sourceTree = "<group>";
+		};
+		3F4F1E75134F89EE007D8FF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F1E76134F89EE007D8FF8 /* GroupMeClientLibrary-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F4F1F10134F9D08007D8FF8 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				3F93957C135CD673002017DE /* no_groups.png */,
+				3F93957D135CD673002017DE /* no_groups@2x.png */,
+				3F939576135CC509002017DE /* chat.png */,
+				3F939577135CC509002017DE /* chat@2x.png */,
+				3F939578135CC509002017DE /* phone.png */,
+				3F939579135CC509002017DE /* phone@2x.png */,
+				3F93957A135CC509002017DE /* poundie.png */,
+				3F93957B135CC509002017DE /* poundie@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3F4F1E6D134F89EE007D8FF8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F0A4C3F135DE57300652B08 /* GMGroupsDataSource.h in Headers */,
+				3F0A4C41135DE57300652B08 /* GroupMeConnect.h in Headers */,
+				3F0A4C43135DE57300652B08 /* GroupMeRequest.h in Headers */,
+				3F0A4C45135DE57300652B08 /* JSONKit.h in Headers */,
+				3F0A4C47135DE57300652B08 /* GMButton.h in Headers */,
+				3F0A4C49135DE57300652B08 /* GMChatButton.h in Headers */,
+				3F0A4C4B135DE57300652B08 /* GMCreateContactViewController.h in Headers */,
+				3F0A4C4D135DE57300652B08 /* GMCreateGroupController.h in Headers */,
+				3F0A4C4F135DE57300652B08 /* GMGroupDetailViewController.h in Headers */,
+				3F0A4C51135DE57300652B08 /* GMGroupPostLineViewController.h in Headers */,
+				3F0A4C53135DE57300652B08 /* GMGroupsTableViewController.h in Headers */,
+				3F0A4C55135DE57300652B08 /* GMRegisterDeviceViewController.h in Headers */,
+				3FC9BD5C137043FA00661F7B /* GMLearnMoreViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3F4F1E6E134F89EE007D8FF8 /* GroupMeClientLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F4F1E92134F89EE007D8FF8 /* Build configuration list for PBXNativeTarget "GroupMeClientLibrary" */;
+			buildPhases = (
+				3F4F1E6B134F89EE007D8FF8 /* Sources */,
+				3F4F1E6C134F89EE007D8FF8 /* Frameworks */,
+				3F4F1E6D134F89EE007D8FF8 /* Headers */,
+				3F4F1ECE134F91C2007D8FF8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GroupMeClientLibrary;
+			productName = GroupMeClientLibrary;
+			productReference = 3F4F1E6F134F89EE007D8FF8 /* libGroupMeClientLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F4F1E66134F89EE007D8FF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Mindless Dribble, Inc";
+			};
+			buildConfigurationList = 3F4F1E69134F89EE007D8FF8 /* Build configuration list for PBXProject "GroupMeClientLibrary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3F4F1E64134F89EE007D8FF8;
+			productRefGroup = 3F4F1E70134F89EE007D8FF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F4F1E6E134F89EE007D8FF8 /* GroupMeClientLibrary */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F4F1ECE134F91C2007D8FF8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\necho \"Building assets bundle.\"\nif [ -d ./GroupMeConnect/GroupMeConnect.bundle ]; then\n    rm -rf ./GroupMeConnect/GroupMeConnect.bundle\nfi\nmkdir ./GroupMeConnect/GroupMeConnect.bundle\nfind ./GroupMeClientLibrary/images -type f -print0 | xargs -0 -J% cp % ./GroupMeConnect/GroupMeConnect.bundle";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F4F1E6B134F89EE007D8FF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F0A4C40135DE57300652B08 /* GMGroupsDataSource.m in Sources */,
+				3F0A4C42135DE57300652B08 /* GroupMeConnect.m in Sources */,
+				3F0A4C44135DE57300652B08 /* GroupMeRequest.m in Sources */,
+				3F0A4C46135DE57300652B08 /* JSONKit.m in Sources */,
+				3F0A4C48135DE57300652B08 /* GMButton.m in Sources */,
+				3F0A4C4A135DE57300652B08 /* GMChatButton.m in Sources */,
+				3F0A4C4C135DE57300652B08 /* GMCreateContactViewController.m in Sources */,
+				3F0A4C4E135DE57300652B08 /* GMCreateGroupController.m in Sources */,
+				3F0A4C50135DE57300652B08 /* GMGroupDetailViewController.m in Sources */,
+				3F0A4C52135DE57300652B08 /* GMGroupPostLineViewController.m in Sources */,
+				3F0A4C54135DE57300652B08 /* GMGroupsTableViewController.m in Sources */,
+				3F0A4C56135DE57300652B08 /* GMRegisterDeviceViewController.m in Sources */,
+				3FC9BD5D137043FA00661F7B /* GMLearnMoreViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3F4F1E90134F89EE007D8FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3F4F1E91134F89EE007D8FF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		3F4F1E93134F89EE007D8FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/GroupMeClientLibrary.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GroupMeClientLibrary/GroupMeClientLibrary-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3F4F1E94134F89EE007D8FF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/GroupMeClientLibrary.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GroupMeClientLibrary/GroupMeClientLibrary-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F4F1E69134F89EE007D8FF8 /* Build configuration list for PBXProject "GroupMeClientLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4F1E90134F89EE007D8FF8 /* Debug */,
+				3F4F1E91134F89EE007D8FF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F4F1E92134F89EE007D8FF8 /* Build configuration list for PBXNativeTarget "GroupMeClientLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4F1E93134F89EE007D8FF8 /* Debug */,
+				3F4F1E94134F89EE007D8FF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F4F1E66134F89EE007D8FF8 /* Project object */;
+}
