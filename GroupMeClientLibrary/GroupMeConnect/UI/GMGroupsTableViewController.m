@@ -154,7 +154,11 @@
 	
 	GMButton *newGroup = [[[GMButton alloc] init] autorelease];
 	[newGroup.titleLabel setFont:[UIFont boldSystemFontOfSize:18.0f]];
-	[newGroup setTitle:@"Start a group" forState:UIControlStateNormal];
+	if ([[GroupMeConnect sharedGroupMe] isSessionValid]) {
+		[newGroup setTitle:@"Start a group" forState:UIControlStateNormal];
+	} else {
+		[newGroup setTitle:@"Get Started" forState:UIControlStateNormal];
+	}
 	[newGroup addTarget:self action:@selector(addGroup) forControlEvents:UIControlEventTouchUpInside];
 	
 	newGroup.frame = CGRectInset(wrapperView.frame, 15.0f, 15.0f);
@@ -162,24 +166,22 @@
 	
 	[wrapperView addSubview:newGroup];
 	
-	if (![[GroupMeConnect sharedGroupMe] isSessionValid]) {
-		wrapperView.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 100.0f);
-		
-		UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		
-		[infoButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
-		[infoButton setTitle:@"Learn more about GroupMe." forState:UIControlStateNormal];
-		[infoButton setTitleColor:GROUP_ME_BRANDING_BLUE forState:UIControlStateNormal];
-		[infoButton setTitleColor:GROUP_ME_BRANDING_DARK_BLUE forState:UIControlStateHighlighted];
-		[infoButton.titleLabel setTextAlignment:UITextAlignmentCenter];
-		[infoButton sizeToFit];
-		
-		[infoButton addTarget:self action:@selector(tappedInfoButton) forControlEvents:UIControlEventTouchUpInside];
-		
-		infoButton.frame = CGRectMake(self.view.frame.size.width/2 - infoButton.frame.size.width/2, 75.0f, infoButton.frame.size.width, infoButton.frame.size.height);
-		
-		[wrapperView addSubview:infoButton];
-	}
+	wrapperView.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 110.0f);
+	
+	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	
+	[infoButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+	[infoButton setTitle:@"Learn more about GroupMe." forState:UIControlStateNormal];
+	[infoButton setTitleColor:GROUP_ME_BRANDING_BLUE forState:UIControlStateNormal];
+	[infoButton setTitleColor:GROUP_ME_BRANDING_DARK_BLUE forState:UIControlStateHighlighted];
+	[infoButton.titleLabel setTextAlignment:UITextAlignmentCenter];
+	[infoButton sizeToFit];
+	
+	[infoButton addTarget:self action:@selector(tappedInfoButton) forControlEvents:UIControlEventTouchUpInside];
+	
+	infoButton.frame = CGRectMake(self.view.frame.size.width/2 - infoButton.frame.size.width/2, 75.0f, infoButton.frame.size.width, infoButton.frame.size.height);
+	
+	[wrapperView addSubview:infoButton];
 	
 	self.tableView.tableFooterView = wrapperView;
 	

@@ -379,7 +379,7 @@
 				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/phone.png"];
 				break;
 			case 2:
-				cell.textLabel.text = ([GroupMeConnect hasGroupMeAppInstalled] ? @"Open GroupMe" : @"Download GroupMe");
+				cell.textLabel.text = ([GroupMeConnect hasGroupMeAppInstalled] ? @"Open GroupMe App" : @"Download GroupMe App");
 				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/poundie.png"];
 				break;
 				

@@ -133,7 +133,7 @@
 		
 		// Configure the cell...
 		
-		cell.textLabel.text = @"Post \"Test\" to a group..";
+		cell.textLabel.text = @"Send \"Test\" to a group..";
 		cell.detailTextLabel.text = @"Also attaches a location (Brooklyn)";
 		
 		return cell;
@@ -184,7 +184,7 @@
 //Called when user picks a group
 - (void)groupMePickedGroup:(NSDictionary*)group {
 	if (group != nil) {
-		_alertView = [[GroupMeConnect workingAlertViewWithTitle:@"Posting Message" andMessage:@"This will only take a moment"] retain];
+		_alertView = [[GroupMeConnect workingAlertViewWithTitle:@"Sending Message" andMessage:@"This will only take a moment"] retain];
 		
 		[[GroupMeConnect sharedGroupMe] postMessage:@"Test" 
 											toGroup:group 

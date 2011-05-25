@@ -17,11 +17,12 @@
 
 @implementation GMLearnMoreViewController
 
+@synthesize url = _url;
 
 + (void) showLearnMoreInViewController:(UIViewController*)vc {
 	
 	GMLearnMoreViewController *lvc = [[GMLearnMoreViewController alloc] init];
-	
+	lvc.url = @"http://groupme.com/client_library_help";
 	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lvc];
 	
 	[vc presentModalViewController:nav animated:YES];
@@ -32,7 +33,22 @@
 	
 }
 
++ (void) showTermsInViewController:(UIViewController*)vc {
+	GMLearnMoreViewController *lvc = [[GMLearnMoreViewController alloc] init];
+	lvc.url = @"http://groupme.com/terms";
+	
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lvc];
+	
+	[vc presentModalViewController:nav animated:YES];
+	
+	[lvc release];
+	[nav release];
+	
+}
+
+
 - (void) dealloc {
+	[_url release];
 	[_spinner release];
 	[_webView release];
 	[super dealloc];
@@ -79,7 +95,7 @@
 
 	//load the help page
 	_webView.delegate = self;
-	[_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://groupme.com/client_library_help"]]];
+	[_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_url]]];
 
 }
 
@@ -101,7 +117,7 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
 	[_spinner stopAnimating];
-	[webView loadHTMLString:@"<html><head><body><div style=\"font-family: Helvetica;font-size:30pt;font-weight:bold;padding:80px 20px\">Could not load help page.<br/><br/><a style=\"color:#1A789E;text-decoration:none;\" href=\"http://groupme.com/client_library_help\">Try to reload.</a></div></body></html>" baseURL:nil];
+	[webView loadHTMLString:[NSString stringWithFormat:@"<html><head><body><div style=\"font-family: Helvetica;font-size:30pt;font-weight:bold;padding:80px 20px\">Could not load help page.<br/><br/><a style=\"color:#1A789E;text-decoration:none;\" href=\"%@\">Try to reload.</a></div></body></html>", _url] baseURL:nil];
 	
 }
 @end

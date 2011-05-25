@@ -19,10 +19,15 @@
 	
 	UIActivityIndicatorView	*_spinner;
 	UIWebView				*_webView;
+	NSString				*_url;
     
 }
 
+@property (nonatomic, retain) NSString				*url;
+
+
 + (void) showLearnMoreInViewController:(UIViewController*)vc;
++ (void) showTermsInViewController:(UIViewController*)vc;
 
 
 @end

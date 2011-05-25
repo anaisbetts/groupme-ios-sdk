@@ -18,6 +18,7 @@
 #import "GMButton.h"
 #import "GMGroupDetailViewController.h"
 #import "GMCreateGroupController.h"
+#import "GMLearnMoreViewController.h"
 
 @implementation GMRegisterDeviceViewController
 
@@ -125,6 +126,15 @@
 	}
 }
 
+- (void) tappedInfoButton {
+	[GMLearnMoreViewController showLearnMoreInViewController:self];
+}
+
+- (void) tappedTerms {
+	[GMLearnMoreViewController showTermsInViewController:self];
+}
+
+
 - (void)close {
 	[self dismissModalViewControllerAnimated:YES];
 	
@@ -144,9 +154,10 @@
 {
     [super viewDidLoad];
 	
-	self.navigationItem.title = @"Register";
+	self.navigationItem.title = @"GroupMe";
 	
 	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)] autorelease];
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStyleBordered target:self action:@selector(tappedInfoButton)] autorelease];
 	
 	self.tableView.rowHeight = 70.0f;
 	
@@ -279,10 +290,10 @@
 		
 		
 	} else {
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15.0f, 5.0f, self.view.bounds.size.width - 30.0f, 50.0f)];
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15.0f, 8.0f, self.view.bounds.size.width - 30.0f, 30.0f)];
 		
 		
-		label.font = [UIFont boldSystemFontOfSize:13.0f];
+		label.font = [UIFont boldSystemFontOfSize:15.0f];
 		label.textColor = [UIColor colorWithRed:122.0/255.0f green:122.0/255.0f blue:114.0f/255.0f alpha:1.0f];
 		label.shadowColor = [UIColor whiteColor];
 		label.backgroundColor = [UIColor clearColor];
@@ -290,11 +301,18 @@
 		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
 		label.textAlignment = UITextAlignmentCenter;
 		label.numberOfLines = 2;
-		label.text = @"New and existing GroupMe users must\nverify their phone number to create groups.";
+		label.text = @"Enter your mobile number to continue.";
 		
 		[view addSubview:label];
 		
 		[label release];
+		
+		UIButton *termsButton = [self textButtonWithText:@"Terms of Service"];
+		[termsButton addTarget:self action:@selector(tappedTerms) forControlEvents:UIControlEventTouchUpInside];
+		termsButton.frame = CGRectMake(15.0f, 35.0f, self.view.bounds.size.width - 30.0f, termsButton.frame.size.height);
+		[view addSubview:termsButton];
+
+
 		
 	}
 	

@@ -136,7 +136,7 @@
 	
 	if ([_textView.text length] > 0) {
 		
-		_alertView = [[GroupMeConnect workingAlertViewWithTitle:@"Posting Message" andMessage:@"This will only take a moment"] retain];
+		_alertView = [[GroupMeConnect workingAlertViewWithTitle:@"Sending Message" andMessage:@"This will only take a moment"] retain];
 		
 		[_textView resignFirstResponder];
 		[_textView becomeFirstResponder];
@@ -162,10 +162,10 @@
 {
     [super viewDidLoad];
 	
-	self.navigationItem.title = @"Post Message";
+	self.navigationItem.title = @"Send Message";
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
 	
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(post)];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleBordered target:self action:@selector(post)];
 
 	
 	CGFloat padding = 10.0f;
