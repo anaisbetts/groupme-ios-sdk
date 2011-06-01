@@ -32,6 +32,8 @@
 @synthesize messageLocationName = _messageLocationName;
 @synthesize messageLatitude = _messageLatitude;
 @synthesize messageLongitude = _messageLongitude;
+@synthesize loggedOutStartButtonText = _loggedOutStartButtonText;
+@synthesize footerText = _footerText;
 
 @dynamic groupListDelegate;
 
@@ -40,6 +42,7 @@
 	_hideNavigationCreateGroupButton = NO;
 	_hideLogoutButton = NO;
 	_hideCloseButton = YES;
+	self.loggedOutStartButtonText = @"Get Started";
 	self.navigationItem.title = @"GroupMe";
 }
 
@@ -98,6 +101,8 @@
 
 - (void)dealloc
 {
+	[_footerText release];
+	[_loggedOutStartButtonText release];
 	[_messageToPost release];
 	[_messageLocationName release];
 	[_messageLatitude release];
@@ -157,7 +162,7 @@
 	if ([[GroupMeConnect sharedGroupMe] isSessionValid]) {
 		[newGroup setTitle:@"Start a group" forState:UIControlStateNormal];
 	} else {
-		[newGroup setTitle:@"Get Started" forState:UIControlStateNormal];
+		[newGroup setTitle:self.loggedOutStartButtonText forState:UIControlStateNormal];
 	}
 	[newGroup addTarget:self action:@selector(addGroup) forControlEvents:UIControlEventTouchUpInside];
 	
@@ -182,6 +187,37 @@
 	infoButton.frame = CGRectMake(self.view.frame.size.width/2 - infoButton.frame.size.width/2, 75.0f, infoButton.frame.size.width, infoButton.frame.size.height);
 	
 	[wrapperView addSubview:infoButton];
+	
+	if (_footerText) {
+		
+		CGFloat footerWidth = self.view.frame.size.width - 40.0f;
+		
+		UILabel *footerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+		footerLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+		footerLabel.textColor = [UIColor colorWithRed:122.0/255.0f green:122.0/255.0f blue:114.0f/255.0f alpha:1.0f];
+		footerLabel.shadowColor = [UIColor whiteColor];
+		footerLabel.backgroundColor = [UIColor clearColor];
+		footerLabel.opaque = NO;
+		footerLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+		footerLabel.textAlignment = UITextAlignmentLeft;
+		footerLabel.numberOfLines = 100;
+		footerLabel.text = _footerText;
+		
+		CGSize size = [_footerText sizeWithFont:footerLabel.font constrainedToSize:CGSizeMake(footerWidth, 10000.0f)];
+		
+		footerLabel.frame = CGRectMake(20.0f, 110.0f, footerWidth, size.height);
+		
+		wrapperView.frame = CGRectMake(wrapperView.frame.origin.x,
+									   wrapperView.frame.origin.y,
+									   wrapperView.frame.size.width,
+									   wrapperView.frame.size.height + size.height + 20.0f);
+		
+		[wrapperView addSubview:footerLabel];
+		[footerLabel release];
+
+		
+		
+	}
 	
 	self.tableView.tableFooterView = wrapperView;
 	

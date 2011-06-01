@@ -334,7 +334,7 @@
 	} else if ([[GroupMeConnect sharedGroupMe] hasSentPIN]) {
 		[_actionButton setTitle:@"Validate PIN" forState:UIControlStateNormal];
 	} else {
-		[_actionButton setTitle:@"Register Phone Number" forState:UIControlStateNormal];
+		[_actionButton setTitle:@"Verify Phone Number" forState:UIControlStateNormal];
 	}
 	
 	[wrapper addSubview:_actionButton];
