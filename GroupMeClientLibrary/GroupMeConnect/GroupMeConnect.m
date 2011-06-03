@@ -35,6 +35,7 @@ static NSString *_clientId = nil;
 static NSString *_clientSecret = nil;
 static NSString *_callbackUrl = nil;
 static NSString *_callbackTitle = nil;
+static NSString *_defaultAddressBookPrefix = @"GroupMe";
 static GroupMeConnect *_sharedGroupMe = nil;
 
 
@@ -44,6 +45,9 @@ static GroupMeConnect *_sharedGroupMe = nil;
 @synthesize userId = _userId;
 @synthesize name = _name;
 @synthesize registrationDelegate = _registrationDelegate;
+@synthesize sendSMSAsDefaultWhenAvailable = _sendSMSAsDefaultWhenAvailable;
+@synthesize showGroupMeLinkOnBottomOfGroupView = _showGroupMeLinkOnBottomOfGroupView;
+@synthesize hideGroupMeLinkInGroupView = _hideGroupMeLinkInGroupView;
 @dynamic groups;
 
 #pragma mark -
@@ -54,6 +58,8 @@ static GroupMeConnect *_sharedGroupMe = nil;
 	if (self) {
 		
 		_hasSentPIN = NO;
+		_hideGroupMeLinkInGroupView = NO;
+		_showGroupMeLinkOnBottomOfGroupView = NO;
 		
 		if (_storeStateInDefaults 
 			&& [[NSUserDefaults standardUserDefaults] objectForKey:GROUP_ME_DEFAULT_TOKEN] != nil 
@@ -407,6 +413,15 @@ static GroupMeConnect *_sharedGroupMe = nil;
 
 + (NSString*)defaultGroupName {
 	return _defaultGroupName;
+}
+
++ (void) setDefaultAddressBookPrefix:(NSString*)prefix {
+	[_defaultAddressBookPrefix release]; 
+	_defaultAddressBookPrefix = [prefix copy];
+}
+
++ (NSString*)defaultAddressBookPrefix {
+	return _defaultAddressBookPrefix;
 }
 
 + (void) setDefaultCallbackUrl:(NSString*)url andTitle:(NSString*)title {

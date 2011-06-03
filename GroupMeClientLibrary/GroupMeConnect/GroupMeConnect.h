@@ -45,6 +45,9 @@
 	BOOL							_hasSentPIN;
 	id<GroupMeRegistrationDelegate> _registrationDelegate;
 	NSArray							*_groups;
+	BOOL							_sendSMSAsDefaultWhenAvailable;
+	BOOL							_showGroupMeLinkOnBottomOfGroupView;
+	BOOL							_hideGroupMeLinkInGroupView;
 }
 
 #pragma mark - Properties
@@ -54,6 +57,9 @@
 @property (nonatomic, retain) NSString	*userId;
 @property (nonatomic, retain) NSArray	*groups;
 @property (nonatomic, assign) id<GroupMeRegistrationDelegate> registrationDelegate;
+@property (nonatomic, assign) BOOL		sendSMSAsDefaultWhenAvailable;
+@property (nonatomic, assign) BOOL		showGroupMeLinkOnBottomOfGroupView;
+@property (nonatomic, assign) BOOL		hideGroupMeLinkInGroupView;
 
 
 #pragma mark - Singleton
@@ -69,6 +75,10 @@
 
 + (void) setDefaultGroupName:(NSString*)groupName;
 + (NSString*)defaultGroupName;
+
++ (void) setDefaultAddressBookPrefix:(NSString*)prefix;
++ (NSString*)defaultAddressBookPrefix;
+
 
 + (void) setDefaultCallbackUrl:(NSString*)url andTitle:(NSString*)title;
 

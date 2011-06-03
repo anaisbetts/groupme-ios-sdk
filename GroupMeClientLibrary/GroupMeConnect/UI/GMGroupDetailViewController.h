@@ -14,6 +14,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
@@ -23,12 +24,12 @@
 
 
 
-@interface GMGroupDetailViewController : UITableViewController <GroupMeRequestDelegate, ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate, GMCreateContactViewControllerDelegate, UIAlertViewDelegate> {
+@interface GMGroupDetailViewController : UITableViewController <GroupMeRequestDelegate, ABPeoplePickerNavigationControllerDelegate, MFMessageComposeViewControllerDelegate, UIActionSheetDelegate, GMCreateContactViewControllerDelegate, UIAlertViewDelegate> {
 	NSDictionary	*_group;
 	NSArray			*_members;
 	NSInteger		_membersRetryCount;
 	GroupMeRequest	*_lastMembersRequest;
-	BOOL			_loadingMembers;
+	BOOL			_loadingMembers, _haveCheckedAddressBook, _inAddressBook;
 	UIAlertView		*_alertView;
 	NSIndexPath		*_indexPathToDelete;
 }

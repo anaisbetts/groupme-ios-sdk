@@ -37,11 +37,19 @@ void uncaughtExceptionHandler(NSException *exception) {
 	//Required for GroupMe, always call this before you do any interaction with GroupMe.
 	
 	[GroupMeConnect setClientId:@"client id" andClientSecret:@"client secret"];
-	[GroupMeConnect setDefaultCallbackUrl:@"groupmedemo://comebacktome" andTitle:@"GroupMe Client Demo"];
 	
 	//Optional
 	[GroupMeConnect storeStateInUserDefaults:YES];
+
 	[GroupMeConnect setDefaultGroupName:@"Buddies"];
+	[GroupMeConnect setDefaultCallbackUrl:@"groupmedemo://comebacktome" andTitle:@"GroupMe Client Demo"];
+	[GroupMeConnect setDefaultAddressBookPrefix:@"GroupMe Demo"];
+
+	
+	//[[GroupMeConnect sharedGroupMe] setSendSMSAsDefaultWhenAvailable:YES];
+	//[[GroupMeConnect sharedGroupMe] setShowGroupMeLinkOnBottomOfGroupView:YES];
+	//[[GroupMeConnect sharedGroupMe] setHideGroupMeLinkInGroupView:YES];
+	
 	
 	//You can always clear the session if you like
 	//[[GroupMeConnect sharedGroupMe] clearSession];
@@ -53,10 +61,10 @@ void uncaughtExceptionHandler(NSException *exception) {
 	
 	GMGroupsTableViewController *groupsVC = [[GMGroupsTableViewController alloc] init];
 	//Optional configuration:
-	groupsVC.hideLogoutButton = YES;
-	groupsVC.hideNavigationCreateGroupButton = YES;
+	//groupsVC.hideLogoutButton = YES;
+	//groupsVC.hideNavigationCreateGroupButton = YES;
 	groupsVC.loggedOutStartButtonText = @"Start or Manage Groups";
-	groupsVC.footerText = @"- Works with any phone that can send\n  and receive text messages\n- View messages wherever you normally\n  do your texting\n- Normal text messaging rates apply\n- Get the GroupMe app for even more\n  group texting functionality";
+	//groupsVC.footerText = @"- Works with any phone that can send\n  and receive text messages\n- View messages wherever you normally\n  do your texting\n- Normal text messaging rates apply\n- Get the GroupMe app for even more\n  group texting functionality";
 	//groupsVC.noGroupsImage = [UIImage imageNamed:@"someOtherSplashScreenThatYouLikeMore.png"];
 
 

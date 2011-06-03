@@ -27,7 +27,7 @@
     
 	GMGroupsDataSource	*_groupsDatasource;
 	UIImage				*_noGroupsImage;
-	NSString			*_messageToPost, *_messageLocationName, *_loggedOutStartButtonText, *_footerText;
+	NSString			*_messageToPost, *_messageLocationName, *_loggedOutStartButtonText, *_footerText, *_defaultTitle;
 	NSNumber			*_messageLatitude, *_messageLongitude;
 	
 	BOOL				_addGroupOnDidAppearUnlessFoundGroups;
@@ -36,7 +36,7 @@
 	id<GMGroupsTableViewControllerDelegate>		_groupListDelegate;
 }
 
-@property (nonatomic, retain) NSString			*messageToPost, *messageLocationName, *loggedOutStartButtonText, *footerText;
+@property (nonatomic, retain) NSString			*messageToPost, *messageLocationName, *loggedOutStartButtonText, *footerText, *defaultTitle;
 @property (nonatomic, retain) NSNumber			*messageLatitude, *messageLongitude;
 @property (nonatomic, retain) UIImage			*noGroupsImage;
 @property (nonatomic, assign) BOOL				hideLogoutButton, hideNavigationCreateGroupButton, hideCloseButton;

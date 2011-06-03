@@ -34,6 +34,7 @@
 @synthesize messageLongitude = _messageLongitude;
 @synthesize loggedOutStartButtonText = _loggedOutStartButtonText;
 @synthesize footerText = _footerText;
+@synthesize defaultTitle = _defaultTitle;
 
 @dynamic groupListDelegate;
 
@@ -43,7 +44,8 @@
 	_hideLogoutButton = NO;
 	_hideCloseButton = YES;
 	self.loggedOutStartButtonText = @"Get Started";
-	self.navigationItem.title = @"GroupMe";
+	self.defaultTitle = @"GroupMe";
+	self.navigationItem.title = self.defaultTitle;
 }
 
 - (id) initWithStyle:(UITableViewStyle)style {
@@ -101,6 +103,7 @@
 
 - (void)dealloc
 {
+	[_defaultTitle release];
 	[_footerText release];
 	[_loggedOutStartButtonText release];
 	[_messageToPost release];
@@ -137,7 +140,7 @@
 		self.navigationItem.title = @"Pick a Group";
 	} else {
 		_groupsDatasource.showDisclosure = YES;
-		self.navigationItem.title = @"GroupMe";
+		self.navigationItem.title = self.defaultTitle;
 	}
 }
 
@@ -446,6 +449,10 @@
 		//this should almost always be the case, but check anyway.
 		if (!_hideCloseButton)
 			[self dismissModalViewControllerAnimated:YES];
+	} else {
+		GMGroupDetailViewController *vc = [[GMGroupDetailViewController alloc] initWithGroup:group];
+		[self.navigationController pushViewController:vc animated:NO];
+		[vc release];
 	}
 }
 

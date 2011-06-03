@@ -94,7 +94,7 @@
 		}
 	}
 	
-//	NSLog(@"Starting GroupMeRequest: %@ %@\nParams: %@", _requestMethod, turl, _params);
+	NSLog(@"Starting GroupMeRequest: %@ %@\nParams: %@", _requestMethod, turl, _params);
 	
 	_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
@@ -123,7 +123,7 @@
 		NSError* error = nil;
 		id result = ([data length] > 0 ? [data objectFromJSONDataWithParseOptions:JKParseOptionNone error:&error] : nil);
 		if ([_delegate respondsToSelector:@selector(request:didLoad:)]) {
-//			NSLog(@"GroupMeRequest response: %@", result);
+			NSLog(@"GroupMeRequest response: %@\n%@", self.url, result);
 			
 			NSDictionary *responsePayload = nil;
 			

@@ -38,6 +38,8 @@
 		
 		_membersRetryCount = 0;
 		_loadingMembers = YES;
+		_haveCheckedAddressBook = NO;
+		_inAddressBook = NO;
 		_indexPathToDelete = nil;
 		
     }
@@ -156,6 +158,84 @@
 	
 }
 
+#pragma mark - Addressbook helpers
+
++ (BOOL)contactExistsForNumber:(NSString *)aNumber{
+	ABAddressBookRef addressBook = ABAddressBookCreate();
+	CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
+	CFIndex nPeople = ABAddressBookGetPersonCount(addressBook);
+	
+	NSString *normNumber = [GroupMeConnect normalizePhoneNumber:aNumber];
+	BOOL found = NO;
+	
+	for (int i = 0; i < nPeople; i++) {
+		ABRecordRef ref = CFArrayGetValueAtIndex(allPeople, i);
+		CFTypeRef phoneNumberMultiRef = ABRecordCopyValue(ref, kABPersonPhoneProperty);
+		for (int j = 0; j < ABMultiValueGetCount(phoneNumberMultiRef); j++) {
+			
+			NSString *unnormalNumberInBook = (NSString *) ABMultiValueCopyValueAtIndex(phoneNumberMultiRef, j);
+			NSString *numberInBook = [GroupMeConnect normalizePhoneNumber:unnormalNumberInBook];
+			if ([normNumber isEqualToString:numberInBook]) {
+				found = YES;
+			}
+			
+			[unnormalNumberInBook release];
+		}
+		CFRelease(phoneNumberMultiRef);
+	}
+	
+	CFRelease(allPeople);
+	CFRelease(addressBook);
+	
+	return found;
+}
+
++ (BOOL)addContactWithPhoneNumber:(NSString *)number andName:(NSString *)name{
+	ABAddressBookRef addressBook = ABAddressBookCreate();
+	BOOL saved = YES;
+	
+	ABRecordRef contactRecord = ABPersonCreate();
+	
+	ABRecordSetValue(contactRecord, kABPersonFirstNameProperty, name, NULL);
+	
+	ABMultiValueRef contactNumber = ABMultiValueCreateMutable(kABPersonPhoneProperty);
+	ABMultiValueAddValueAndLabel(contactNumber, [GroupMeConnect normalizePhoneNumber:number], kABPersonPhoneMobileLabel, NULL);
+	
+	ABRecordSetValue(contactRecord, kABPersonPhoneProperty, contactNumber, NULL);
+	
+	ABAddressBookAddRecord(addressBook, contactRecord, NULL);
+	
+	
+	CFErrorRef error = NULL;
+	
+	if (ABAddressBookHasUnsavedChanges(addressBook)) {
+		ABAddressBookSave(addressBook, &error);
+	}
+	
+	if(error != NULL){
+		saved = NO;
+	}
+	
+	CFRelease(contactNumber);
+	CFRelease(contactRecord);
+	
+	CFRelease(addressBook);
+	
+	return saved;
+}
+
+- (void)checkAddressBook {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	_inAddressBook = [GMGroupDetailViewController contactExistsForNumber:[_group objectForKey:@"phone_number"]];
+	_haveCheckedAddressBook = YES;
+	[self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+	
+	[pool release];
+	
+}
+
+
 #pragma mark - Adding members
 
 - (NSArray*) memberNames {
@@ -267,7 +347,16 @@
 	}
 	
 	[super setEditing:editing animated:YES];
+	[self.tableView beginUpdates];
 	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+	if ([GroupMeConnect sharedGroupMe].showGroupMeLinkOnBottomOfGroupView) {
+		if (editing) {
+			[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
+		} else {
+			[self.tableView insertSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
+		}
+	}
+	[self.tableView endUpdates];
 
 }
 
@@ -302,6 +391,11 @@
 		[self performSelector:@selector(loadMembers) withObject:nil afterDelay:0.5];
 		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
 	}
+	
+	if (!_haveCheckedAddressBook) {
+		[self performSelectorInBackground:@selector(checkAddressBook) withObject:nil];
+		
+	}
 
 }
 
@@ -326,14 +420,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return ([GroupMeConnect sharedGroupMe].showGroupMeLinkOnBottomOfGroupView && ! self.tableView.editing ? 3 : 2);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-	if (section == 0) {
-		return (tableView.editing ? 0 : 3);
+	if (section == 2) {
+		return 1;
+	} else if (section == 0) {
+		return (tableView.editing ? 0 : (![GroupMeConnect sharedGroupMe].showGroupMeLinkOnBottomOfGroupView && ![GroupMeConnect sharedGroupMe].hideGroupMeLinkInGroupView ? 4 : 3));
 	} else {
 		if (_loadingMembers) {
 			return 1;
@@ -344,12 +440,22 @@
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	if (section == 0) {
+	if (section == 2) {
+		return ([self tableView:tableView numberOfRowsInSection:section] ? @"GroupMe" : nil);
+	} else if (section == 0) {
 		return (tableView.editing ? [NSString stringWithFormat:@"Editing Group: %@", [_group objectForKey:@"topic"]] : [_group objectForKey:@"topic"]);
 	} else {
 		return ([self tableView:tableView numberOfRowsInSection:section] ? @"Members" : nil);
 	}
 }
+
+- (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+	if (section == 2 && ![GroupMeConnect hasGroupMeAppInstalled]) {
+		return @"You don't need to download the GroupMe app, but with it you can share photos and location and other cool stuff.";
+	}
+	return nil;
+}
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -368,10 +474,13 @@
 	cell.imageView.image = nil;
 	cell.detailTextLabel.text = nil;
 	
-	if (indexPath.section == 0) {
+	if (indexPath.section == 2) {
+		cell.textLabel.text = ([GroupMeConnect hasGroupMeAppInstalled] ? @"Open GroupMe App" : @"Download GroupMe App");
+		cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/poundie.png"];
+	} else if (indexPath.section == 0) {
 		switch (indexPath.row) {
 			case 0:
-				cell.textLabel.text = @"Text group";
+				cell.textLabel.text = @"Send text to group";
 				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/chat.png"];
 				break;
 			case 1:
@@ -379,6 +488,12 @@
 				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/phone.png"];
 				break;
 			case 2:
+				cell.textLabel.text = (_haveCheckedAddressBook ? (_inAddressBook ? @"In Address Book" : @"Add to Address Book") : @"Checking Address Book");
+				if (_haveCheckedAddressBook && _inAddressBook)
+					cell.selectionStyle = UITableViewCellSelectionStyleNone;
+				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/book.png"];
+				break;
+			case 3:
 				cell.textLabel.text = ([GroupMeConnect hasGroupMeAppInstalled] ? @"Open GroupMe App" : @"Download GroupMe App");
 				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/poundie.png"];
 				break;
@@ -485,13 +600,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	
-	if (indexPath.section == 0) {
+	
+	//Open GroupMe
+	if ((indexPath.section == 0 && indexPath.row == 3) || indexPath.section == 2) {
+		if ([GroupMeConnect hasGroupMeAppInstalled]) {
+			[GroupMeConnect openGroupMeAppForGroup:_group];
+		} else {
+			[GroupMeConnect downloadGroupMeApp];
+		}
+	} else if (indexPath.section == 0) {
 		
 		//Text Group
 		if (indexPath.row == 0) {
 			
+			Class messageComposeViewControllerClass = NSClassFromString(@"MFMessageComposeViewController");
 			
-			[GMGroupPostLineViewController showGroupPostLineInViewController:self andGroup:_group andDelegate:nil];
+			if ([GroupMeConnect sharedGroupMe].sendSMSAsDefaultWhenAvailable &&  messageComposeViewControllerClass && [messageComposeViewControllerClass canSendText]) {
+				id controller = [[messageComposeViewControllerClass alloc] initWithNibName:nil bundle:nil];
+				[controller setRecipients:[NSArray arrayWithObject:[_group objectForKey:@"phone_number"]]];
+				[controller setMessageComposeDelegate:self];
+				[self.navigationController presentModalViewController:controller animated:YES];
+				[controller release];
+			} else {
+				[GMGroupPostLineViewController showGroupPostLineInViewController:self andGroup:_group andDelegate:nil];
+			}
 		}
 
 		//Conference Call
@@ -509,20 +641,17 @@
 														andHttpMethod:@"POST"
 														 andRequestId:CONFERENCE_REQUEST
 														  andDelegate:self];
-
-
 				
 			}
 		}
-		
-		//Open GroupMe
-		if (indexPath.row == 2) {
-			if ([GroupMeConnect hasGroupMeAppInstalled]) {
-				[GroupMeConnect openGroupMeAppForGroup:_group];
-			} else {
-				[GroupMeConnect downloadGroupMeApp];
-			}
+		//Address book
+		if (indexPath.row == 2 && _haveCheckedAddressBook && !_inAddressBook) {
+			[GMGroupDetailViewController addContactWithPhoneNumber:[GroupMeConnect normalizePhoneNumber:[_group objectForKey:@"phone_number"]]
+														   andName:[NSString stringWithFormat:@"%@: %@", [GroupMeConnect defaultAddressBookPrefix], [_group objectForKey:@"topic"]]];
+			_inAddressBook = YES;
+			[self.tableView reloadData];
 		}
+		
 	} else {
 		if (!_loadingMembers && indexPath.row == ([self tableView:tableView numberOfRowsInSection:indexPath.section] - 1)) {
 			[self addMember];
@@ -819,5 +948,12 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
+#pragma mark  - MFMessageComposeViewControllerDelegate
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+
+	[controller dismissModalViewControllerAnimated:NO];
+
+}
 
 @end
