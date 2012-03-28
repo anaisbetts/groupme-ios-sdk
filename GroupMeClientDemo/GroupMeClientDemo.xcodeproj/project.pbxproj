@@ -37,6 +37,7 @@
 		3F9E3930135762ED005AAFA0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E392E135762ED005AAFA0 /* Icon.png */; };
 		3F9E3931135762ED005AAFA0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E392F135762ED005AAFA0 /* Icon@2x.png */; };
 		3FC9BD61137045D000661F7B /* GMLearnMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9BD60137045D000661F7B /* GMLearnMoreViewController.m */; };
+		3FD3B0241523907B00089907 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD3B0231523907B00089907 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		3F9E392F135762ED005AAFA0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		3FC9BD5F137045D000661F7B /* GMLearnMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLearnMoreViewController.h; sourceTree = "<group>"; };
 		3FC9BD60137045D000661F7B /* GMLearnMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLearnMoreViewController.m; sourceTree = "<group>"; };
+		3FD3B0231523907B00089907 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD3B0241523907B00089907 /* Security.framework in Frameworks */,
 				3F8B412B1358B1C6009C4415 /* MessageUI.framework in Frameworks */,
 				3F9E38F21357402F005AAFA0 /* QuartzCore.framework in Frameworks */,
 				3F177FDA1355DC8E00A4637F /* AddressBook.framework in Frameworks */,
@@ -129,13 +132,14 @@
 		3F4F1F28134F9E80007D8FF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3F8B412A1358B1C6009C4415 /* MessageUI.framework */,
-				3F9E38F11357402F005AAFA0 /* QuartzCore.framework */,
 				3F177FD81355DC8E00A4637F /* AddressBook.framework */,
 				3F177FD91355DC8E00A4637F /* AddressBookUI.framework */,
-				3F4F1F29134F9E80007D8FF8 /* UIKit.framework */,
-				3F4F1F2B134F9E80007D8FF8 /* Foundation.framework */,
 				3F4F1F2D134F9E80007D8FF8 /* CoreGraphics.framework */,
+				3F4F1F2B134F9E80007D8FF8 /* Foundation.framework */,
+				3F8B412A1358B1C6009C4415 /* MessageUI.framework */,
+				3F9E38F11357402F005AAFA0 /* QuartzCore.framework */,
+				3FD3B0231523907B00089907 /* Security.framework */,
+				3F4F1F29134F9E80007D8FF8 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

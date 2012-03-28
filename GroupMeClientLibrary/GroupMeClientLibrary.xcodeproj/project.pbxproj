@@ -38,6 +38,7 @@
 		3F9E38F513574041005AAFA0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9E38F413574041005AAFA0 /* QuartzCore.framework */; };
 		3FC9BD5C137043FA00661F7B /* GMLearnMoreViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC9BD5A137043FA00661F7B /* GMLearnMoreViewController.h */; };
 		3FC9BD5D137043FA00661F7B /* GMLearnMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9BD5B137043FA00661F7B /* GMLearnMoreViewController.m */; };
+		3FD3B0211523905B00089907 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD3B0201523905B00089907 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		3F9E38F413574041005AAFA0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3FC9BD5A137043FA00661F7B /* GMLearnMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLearnMoreViewController.h; sourceTree = "<group>"; };
 		3FC9BD5B137043FA00661F7B /* GMLearnMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLearnMoreViewController.m; sourceTree = "<group>"; };
+		3FD3B0201523905B00089907 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD3B0211523905B00089907 /* Security.framework in Frameworks */,
 				3F8B41281358B1B5009C4415 /* MessageUI.framework in Frameworks */,
 				3F9E38F513574041005AAFA0 /* QuartzCore.framework in Frameworks */,
 				3F177FDF1355DC9900A4637F /* AddressBook.framework in Frameworks */,
@@ -186,13 +189,14 @@
 		3F4F1E71134F89EE007D8FF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3F8B41271358B1B5009C4415 /* MessageUI.framework */,
-				3F9E38F413574041005AAFA0 /* QuartzCore.framework */,
 				3F177FDD1355DC9900A4637F /* AddressBook.framework */,
 				3F177FDE1355DC9900A4637F /* AddressBookUI.framework */,
-				3F4F1E72134F89EE007D8FF8 /* Foundation.framework */,
-				3F4F1E7D134F89EE007D8FF8 /* UIKit.framework */,
 				3F4F1E80134F89EE007D8FF8 /* CoreGraphics.framework */,
+				3F4F1E72134F89EE007D8FF8 /* Foundation.framework */,
+				3F8B41271358B1B5009C4415 /* MessageUI.framework */,
+				3F9E38F413574041005AAFA0 /* QuartzCore.framework */,
+				3FD3B0201523905B00089907 /* Security.framework */,
+				3F4F1E7D134F89EE007D8FF8 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -16,6 +16,7 @@
 #import "GroupMeConnect.h"
 #import "JSONKit.h"
 
+#define GROUP_ME_DEFAULT_DEVICE_ID @"GroupMeDeviceId"
 #define GROUP_ME_DEFAULT_TOKEN @"GroupMeToken"
 #define GROUP_ME_DEFAULT_USER_ID @"GroupMeUserId"
 #define GROUP_ME_DEFAULT_NAME @"GroupMeName"
@@ -94,6 +95,49 @@ static GroupMeConnect *_sharedGroupMe = nil;
 	}
 	
 	return _sharedGroupMe;
+}
+
+#pragma mark - Generate Device Ids
+
++ (NSString *)hexForData:(NSData*)theData {
+    /* Returns hexadecimal string of NSData. Empty string if data is empty.   */
+	
+    const unsigned char *dataBuffer = (const unsigned char *)[theData bytes];
+	
+    if (!dataBuffer)
+        return [NSString string];
+	
+    NSUInteger          dataLength  = [theData length];
+    NSMutableString     *hexString  = [NSMutableString stringWithCapacity:(dataLength * 2)];
+	
+    for (int i = 0; i < dataLength; ++i)
+        [hexString appendString:[NSString stringWithFormat:@"%02x", (unsigned long)dataBuffer[i]]];
+	
+    return [NSString stringWithString:hexString];
+}
+
++ (NSString *) secureRandomDeviceId {
+	
+	NSMutableData *data = [NSMutableData dataWithLength:40];
+	
+	int result = SecRandomCopyBytes(kSecRandomDefault, 
+									40,
+									data.mutableBytes);
+	
+	if (result == 0) {
+		return [self hexForData:data];
+	} else {
+		return nil;
+	}
+}
+
+- (NSString*) secureDeviceId {
+	NSString *deviceId = [[NSUserDefaults standardUserDefaults] stringForKey:GROUP_ME_DEFAULT_DEVICE_ID];
+	if (deviceId == nil) {
+		deviceId = [GroupMeConnect secureRandomDeviceId];
+		[[NSUserDefaults standardUserDefaults] setValue:deviceId forKey:GROUP_ME_DEFAULT_DEVICE_ID];
+	}
+	return deviceId;
 }
 
 #pragma mark - Dynamic Properties
@@ -213,7 +257,7 @@ static GroupMeConnect *_sharedGroupMe = nil;
 	[params setValue:_clientSecret forKey:@"client_secret"];
 
 	[params setValue:phoneNumber forKey:@"phone_number"];
-	[params setValue:[[UIDevice currentDevice] uniqueIdentifier] forKey:@"device_id"];
+	[params setValue:[self secureDeviceId] forKey:@"device_id"];
 #ifdef TEST_DEVICE_ID
 	[params setValue:TEST_DEVICE_ID forKey:@"device_id"];
 #endif
@@ -244,7 +288,7 @@ static GroupMeConnect *_sharedGroupMe = nil;
 	
 	[params setValue:_lastPhoneNumber forKey:@"phone_number"];
 	[params setValue:[pin uppercaseString] forKey:@"code"];
-	[params setValue:[[UIDevice currentDevice] uniqueIdentifier] forKey:@"device_id"];
+	[params setValue:[self secureDeviceId] forKey:@"device_id"];
 #ifdef TEST_DEVICE_ID
 	[params setValue:TEST_DEVICE_ID forKey:@"device_id"];
 #endif

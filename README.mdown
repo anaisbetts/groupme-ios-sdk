@@ -33,6 +33,7 @@ Copy the GroupMeClientLibrary/GroupMeConnect folder into your application:
 	* QuartzCore.framework
 	* CoreGraphics.framework
 	* MessageUI.framework
+	* Security.framework
 * Import the headers
 	
 		#import "GroupMeConnect.h"
