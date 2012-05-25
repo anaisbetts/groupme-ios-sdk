@@ -22,7 +22,6 @@
 
 #define DELETE_REQUEST @"removeMember"
 #define ADD_REQUEST @"addMember"
-#define CONFERENCE_REQUEST @"conferenceCall"
 #define DELETE_GROUP_REQUEST @"deleteGroup"
 
 @implementation GMGroupDetailViewController
@@ -429,7 +428,7 @@
 	if (section == 2) {
 		return 1;
 	} else if (section == 0) {
-		return (tableView.editing ? 0 : (![GroupMeConnect sharedGroupMe].showGroupMeLinkOnBottomOfGroupView && ![GroupMeConnect sharedGroupMe].hideGroupMeLinkInGroupView ? 4 : 3));
+		return (tableView.editing ? 0 : (![GroupMeConnect sharedGroupMe].showGroupMeLinkOnBottomOfGroupView && ![GroupMeConnect sharedGroupMe].hideGroupMeLinkInGroupView ? 3 : 2));
 	} else {
 		if (_loadingMembers) {
 			return 1;
@@ -484,16 +483,12 @@
 				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/chat.png"];
 				break;
 			case 1:
-				cell.textLabel.text = @"Start conference call";
-				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/phone.png"];
-				break;
-			case 2:
 				cell.textLabel.text = (_haveCheckedAddressBook ? (_inAddressBook ? @"In Address Book" : @"Add to Address Book") : @"Checking Address Book");
 				if (_haveCheckedAddressBook && _inAddressBook)
 					cell.selectionStyle = UITableViewCellSelectionStyleNone;
 				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/book.png"];
 				break;
-			case 3:
+			case 2:
 				cell.textLabel.text = ([GroupMeConnect hasGroupMeAppInstalled] ? @"Open GroupMe App" : @"Download GroupMe App");
 				cell.imageView.image = [UIImage imageNamed:@"GroupMeConnect.bundle/poundie.png"];
 				break;
@@ -602,7 +597,7 @@
 	
 	
 	//Open GroupMe
-	if ((indexPath.section == 0 && indexPath.row == 3) || indexPath.section == 2) {
+	if ((indexPath.section == 0 && indexPath.row == 2) || indexPath.section == 2) {
 		if ([GroupMeConnect hasGroupMeAppInstalled]) {
 			[GroupMeConnect openGroupMeAppForGroup:_group];
 		} else {
@@ -626,26 +621,8 @@
 			}
 		}
 
-		//Conference Call
-		if (indexPath.row == 1) {
-			
-			NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", [GroupMeConnect normalizePhoneNumber:[_group objectForKey:@"phone_number"]]]];
-			if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
-				[[UIApplication sharedApplication] openURL:phoneUrl];
-			} else {
-				
-				_alertView = [[GroupMeConnect workingAlertViewWithTitle:@"Starting Call" andMessage:@"This will only take a moment"] retain];
-				
-				[[GroupMeConnect sharedGroupMe] requestWithMethodName:[NSString stringWithFormat:@"groups/%@/conferences", [_group objectForKey:@"id"]]
-															andParams:nil
-														andHttpMethod:@"POST"
-														 andRequestId:CONFERENCE_REQUEST
-														  andDelegate:self];
-				
-			}
-		}
 		//Address book
-		if (indexPath.row == 2 && _haveCheckedAddressBook && !_inAddressBook) {
+		if (indexPath.row == 1 && _haveCheckedAddressBook && !_inAddressBook) {
 			[GMGroupDetailViewController addContactWithPhoneNumber:[GroupMeConnect normalizePhoneNumber:[_group objectForKey:@"phone_number"]]
 														   andName:[NSString stringWithFormat:@"%@: %@", [GroupMeConnect defaultAddressBookPrefix], [_group objectForKey:@"topic"]]];
 			_inAddressBook = YES;
@@ -675,16 +652,7 @@
 
 - (void)request:(GroupMeRequest *)request didFailWithError:(NSError *)error {
 	
-	if ([CONFERENCE_REQUEST isEqualToString:request.requestId]) {
-		
-		[self hideAlert];
-		if ([request.errors count] > 0) {
-			[GroupMeConnect showError:[request.errors objectAtIndex:0]];
-		} else {
-			[GroupMeConnect showError:@"Could not start conference call.\nPlease try again later."];
-		}
-		
-	} else if([DELETE_GROUP_REQUEST isEqualToString:request.requestId]) {
+	if([DELETE_GROUP_REQUEST isEqualToString:request.requestId]) {
 		
 		[self hideAlert];
 		if ([request.errors count] > 0) {
@@ -733,22 +701,8 @@
 - (void)request:(GroupMeRequest *)request didLoad:(id)result {
 
 
-	if ([CONFERENCE_REQUEST isEqualToString:request.requestId]) {
-		
-		[self hideAlert];
-		if (request.statusCode == 201) {
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Call Started"
-															message:@"The conference call has started. Everyone's phones should ring in a moment." 
-														   delegate:self 
-												  cancelButtonTitle:@"OK"
-												  otherButtonTitles:nil];
-			[alert show];
-			[alert release];
-		} else {
-			[GroupMeConnect showError:@"Could not start conference call.\nPlease try again later."];
-		}
-		
-	} else if([DELETE_GROUP_REQUEST isEqualToString:request.requestId]) {
+
+	if([DELETE_GROUP_REQUEST isEqualToString:request.requestId]) {
 		[self hideAlert];
 		if (request.statusCode == 200) {
 			[[GroupMeConnect sharedGroupMe] removeGroupFromGroups:_group];
