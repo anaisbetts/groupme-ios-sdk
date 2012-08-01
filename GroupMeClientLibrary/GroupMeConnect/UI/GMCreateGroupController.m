@@ -22,6 +22,7 @@
 
 @synthesize externalGroupId = _externalGroupId;
 @synthesize groupCreateDelegate = _groupCreateDelegate;
+@synthesize contacts = _contacts;
 @dynamic groupName;
 
 - (id)init

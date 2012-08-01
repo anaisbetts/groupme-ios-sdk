@@ -36,6 +36,7 @@
 @property (nonatomic, retain)	NSString *externalGroupId;
 @property (nonatomic, assign)	NSString *groupName;
 @property (nonatomic, assign)	id<GMCreateGroupControllerDelegate>	groupCreateDelegate;
+@property (nonatomic, retain) NSMutableArray* contacts;
 
 + (void) showGroupCreationInViewController:(UIViewController*)vc
 							   andDelegate:(id<GMCreateGroupControllerDelegate>)delegate;
